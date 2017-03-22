@@ -1,3 +1,3 @@
 package addressbook.domain
 
-class AddressBook(var entries: Seq[AddressBook])
+class AddressBook(var entries: Seq[AddressBookEntry])
