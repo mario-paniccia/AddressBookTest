@@ -10,6 +10,8 @@ class AddressBookStatsSpec extends FlatSpec with Matchers {
   val Dob2 = new LocalDate(2000, 5, 13)
   val Dob3 = new LocalDate(2010, 5, 13)
 
+  val EmptyAddressBook = AddressBook()
+
   "AddressBookStats" should "return number of males" in {
 
     val ab = AddressBook(AddressBookEntry("p1", "Male", Dob),
@@ -21,9 +23,7 @@ class AddressBookStatsSpec extends FlatSpec with Matchers {
 
   "AddressBookStats" should "return 0 number of males when empty" in {
 
-    val ab = AddressBook()
-
-    AddressBookStats.numberOfMales(ab) shouldBe 0
+    AddressBookStats.numberOfMales(EmptyAddressBook) shouldBe 0
   }
 
   "AddressBookStats" should "return the oldest person" in {
@@ -32,7 +32,12 @@ class AddressBookStatsSpec extends FlatSpec with Matchers {
       AddressBookEntry("p2", "Male", Dob2),
       AddressBookEntry("p3", "Female", Dob3))
 
-    AddressBookStats.oldestPerson(ab) shouldBe "p2"
+    AddressBookStats.oldestPerson(ab) shouldBe Some("p3")
+  }
+
+  "AddressBookStats" should "return None when address book is empty" in {
+
+    AddressBookStats.oldestPerson(EmptyAddressBook) shouldBe None
   }
 
 }
