@@ -5,7 +5,7 @@ import addressbook.stats.AddressBookStats
 
 object Main extends App {
 
-  val addressBookRepository = new FileAddressBookRepository("/Users/mario/temp/AddressBookTest/src/main/resources/inputs.txt")
+  val addressBookRepository = new FileAddressBookRepository("inputs.txt")
   val ab = addressBookRepository.getAddressBook()
 
   println(AddressBookStats.numberOfMales(ab))
