@@ -1,4 +1,4 @@
-package addressbook
+package addressbook.stats
 
 import addressbook.domain.AddressBook
 
