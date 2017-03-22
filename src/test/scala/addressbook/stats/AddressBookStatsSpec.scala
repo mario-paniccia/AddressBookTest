@@ -32,7 +32,7 @@ class AddressBookStatsSpec extends FlatSpec with Matchers {
       AddressBookEntry("p2", "Male", Dob2),
       AddressBookEntry("p3", "Female", Dob3))
 
-    AddressBookStats.oldestPerson(ab) shouldBe Some("p3")
+    AddressBookStats.oldestPerson(ab) shouldBe Some("p1")
   }
 
   "AddressBookStats" should "return None when address book is empty" in {

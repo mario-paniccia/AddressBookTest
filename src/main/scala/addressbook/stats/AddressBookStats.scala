@@ -14,7 +14,7 @@ object AddressBookStats {
       case Nil => None
       case x +: xs => {
         val result = xs.foldLeft(x) {
-        (acc, elem) => if(elem.dob > acc.dob) elem else acc
+        (acc, elem) => if(elem.dob < acc.dob) elem else acc
       }
         Some(result.name)
       }
