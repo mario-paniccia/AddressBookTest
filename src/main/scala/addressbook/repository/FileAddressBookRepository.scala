@@ -1,6 +1,5 @@
 package addressbook.repository
 import java.io.File
-import java.text.DateFormat
 
 import addressbook.domain.{AddressBook, AddressBookEntry}
 import org.joda.time.LocalDate
@@ -10,6 +9,7 @@ import scala.io.Source
 
 class FileAddressBookRepository(path: String) extends AddressBookRepository {
 
+  //assuming file contains only valid lines
   override def getAddressBook(): AddressBook = {
     val source = Source.fromFile(new File(path))
 

@@ -1,5 +1,7 @@
 package addressbook.repository
 
+import java.io.FileNotFoundException
+
 import addressbook.domain.AddressBookEntry
 import org.joda.time.LocalDate
 import org.scalatest.{FlatSpec, Matchers}
@@ -15,5 +17,12 @@ class FileAddressBookRepositorySpec extends FlatSpec with Matchers {
     ab.entries should have size 2
     ab.entries should contain allOf (AddressBookEntry("Bill McKnight", "Male", new LocalDate(1977, 3, 16)),
                                 AddressBookEntry("Sarah Stone", "Female", new LocalDate(1980, 9, 20)))
+  }
+
+  it should "throw a FileNotFoundException if cannot find file" in {
+
+    assertThrows[FileNotFoundException] {
+      new FileAddressBookRepository("/wrong/path").getAddressBook()
+    }
   }
 }
