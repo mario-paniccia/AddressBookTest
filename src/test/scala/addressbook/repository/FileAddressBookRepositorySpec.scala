@@ -1,7 +1,5 @@
 package addressbook.repository
 
-import java.io.FileNotFoundException
-
 import addressbook.domain.AddressBookEntry
 import org.joda.time.LocalDate
 import org.scalatest.{FlatSpec, Matchers}
@@ -10,7 +8,7 @@ class FileAddressBookRepositorySpec extends FlatSpec with Matchers {
 
   "a FileAddressBookRepository" should "be able to read a valid address book from file" in {
 
-    val repo = new FileAddressBookRepository("/Users/mario/temp/AddressBookTest/src/test/resources/inputs_sample.txt")
+    val repo = new FileAddressBookRepository("inputs_sample.txt")
 
     val ab = repo.getAddressBook()
 
@@ -19,10 +17,4 @@ class FileAddressBookRepositorySpec extends FlatSpec with Matchers {
                                 AddressBookEntry("Sarah Stone", "Female", new LocalDate(1980, 9, 20)))
   }
 
-  it should "throw a FileNotFoundException if cannot find file" in {
-
-    assertThrows[FileNotFoundException] {
-      new FileAddressBookRepository("/wrong/path").getAddressBook()
-    }
-  }
 }
