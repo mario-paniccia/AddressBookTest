@@ -1,6 +1,6 @@
 package addressbook.stats
 
-import addressbook.domain.{AddressBook, AddressBookEntry}
+import addressbook.domain.{AddressBook, AddressBookEntry, AddressBookSpec}
 import org.joda.time.LocalDate
 import org.scalatest.{FlatSpec, Matchers}
 

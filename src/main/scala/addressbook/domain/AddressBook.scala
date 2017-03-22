@@ -1,6 +1,10 @@
 package addressbook.domain
 
-class AddressBook(var entries: Seq[AddressBookEntry])
+class AddressBook(val entries: Seq[AddressBookEntry]) {
+
+  def find(name: String):Option[AddressBookEntry] = entries.find(_.name == name)
+
+}
 
 object AddressBook {
 

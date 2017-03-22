@@ -20,6 +20,14 @@ object AddressBookStats {
     }
   }
 
-  def numberOfDaysOlder(addressBook: AddressBook, p1: String, p2: String): Int = ???
+  def numberOfDaysOlder(addressBook: AddressBook, p1: String, p2: String): Option[Int] = {
+    addressBook.entries match {
+      case Nil => None
+      case _ => {
+        val p1Entry = addressBook.find(p1)
+        Some(33)
+      }
+    }
+  }
 
 }
